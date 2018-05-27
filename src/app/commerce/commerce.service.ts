@@ -74,7 +74,8 @@ export class CommerceService {
         let data = {
           'id': d.id? d.id:'',
           'name': d.name,
-          'description': d.description
+          'description': d.description,
+          'address':d.address
         }
         return this.http.post(url, data, {'headers': headers}).map((res:any) => {
             return new Restaurant(res.data);

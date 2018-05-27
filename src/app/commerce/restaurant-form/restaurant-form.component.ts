@@ -11,7 +11,7 @@ import { City, Province, Address } from '../../account/account';
   styleUrls: ['./restaurant-form.component.scss']
 })
 export class RestaurantFormComponent implements OnInit {
-
+	restaurant:Restaurant;
 	id:string = '';
 	categoryList:Category[] = [];
 	cityList:City[] = [new City({id:'5130', name:'Toronto', province:{id:'48'}})];
@@ -68,6 +68,7 @@ export class RestaurantFormComponent implements OnInit {
         self.route.params.subscribe((params:any)=>{
             self.commerceServ.getRestaurant(params.id).subscribe(
                 (r:Restaurant) => {
+                	self.restaurant = r;
                 	self.id = r.id;
                     self.form.patchValue(r);
 
@@ -126,10 +127,19 @@ export class RestaurantFormComponent implements OnInit {
 
         self.form.patchValue({province_id:'48', city_id:'5130'});
 	}
-
+      
 	save(){
 		let self = this;
+		let v = this.form.value;
+		let addr = null;
+		// hardcode Toronto as default
+		if(self.restaurant && self.restaurant.address){
+			addr = self.restaurant.address;
+		}else{
+			addr = new Address({id:'', city:{id:5130}, province:{id:48},street:v.street, postal_code:v.postal_code});
+		}
 		let m = new Restaurant(this.form.value);
+		m.address = addr;
 		m.id = self.id;
 		this.commerceServ.saveRestaurant(m).subscribe( (r:any) => {
 			self.router.navigate(['admin/restaurants']);

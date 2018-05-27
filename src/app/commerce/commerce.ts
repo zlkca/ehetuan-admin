@@ -1,4 +1,5 @@
-import { User } from '../account/account';
+import { User，Address } from '../account/account';
+
 const MAX_N_PICTURES = 5;
 
 export class Restaurant{
@@ -6,6 +7,7 @@ export class Restaurant{
   public name:string;
   public description:string;
   categories:Category[];
+  address:Address;
   public created:string;
   public updated:string;
     constructor(o?:any){
@@ -16,6 +18,10 @@ export class Restaurant{
             this.created = o.created;
             this.updated = o.updated;
 
+            if(o.address){
+              this.address = o.address;
+            }
+            
             if(o.categories && o.categories.length > 0){
               let cs = [];
               for(let c of o.categories){
