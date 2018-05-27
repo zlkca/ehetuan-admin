@@ -61,29 +61,65 @@ export class CommerceService {
         const url = API_URL + 'restaurants/' + id;
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
         return this.http.get(url, {'headers': headers}).map((res:any) => {
-            return new Restaurant(res.data);
+            return new Restaurant(res.data); // { name:x, address: {street:x, city:{id:x}, province:{id:x}}}
         })
         .catch((err) => {
             return Observable.throw(err.message || err);
         });
     }
 
-    saveRestaurant(d:Restaurant):Observable<Restaurant>{
-        const url = API_URL + 'restaurants';
-        let headers = new HttpHeaders().set('Content-Type', 'application/json');
-        let data = {
-          'id': d.id? d.id:'',
-          'name': d.name,
-          'description': d.description,
-          'address':d.address
-        }
-        return this.http.post(url, data, {'headers': headers}).map((res:any) => {
-            return new Restaurant(res.data);
-        })
-        .catch((err) => {
-            return Observable.throw(err.message || err);
-        });
+    saveRestaurant(d:Restaurant){
+        let token = localStorage.getItem('token-' + this.APP);
+        let self = this;
+
+        return Observable.fromPromise(new Promise((resolve, reject)=>{
+            let formData = new FormData();
+            formData.append('id', d.id? d.id:'');
+            formData.append('name', d.name);
+            formData.append('description', d.description);
+            formData.append('address_id', d.address.id);
+            formData.append('street', d.address.street);
+            formData.append('postal_code', d.address.postal_code);
+            formData.append('province_id', d.address.province.id);
+            formData.append('city_id', d.address.city.id);
+            formData.append('categories', Array.from(d.categories, x => x.id).join(','));
+            formData.append('lat', d.address.lat);
+            formData.append('lng', d.address.lng);
+                 
+            let image = d.image;
+            if(d.image.data == ''){
+                formData.append('image_status', 'removed');
+            }else{
+                if(d.image.file == ''){
+                    formData.append('image_status', 'unchange');
+                }else{
+                    formData.append('image_status', 'changed');
+                    formData.append('image', image.file);
+                }
+            }
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.onreadystatechange = function (e) {
+              if (xhr.readyState === 4) { // done
+                if (xhr.status === 200) { // ok
+                    resolve(JSON.parse(xhr.response));
+                } else {
+                    reject(xhr.response);
+                }
+              }
+            };
+
+            xhr.onerror = function (e) {
+                reject(xhr.response);
+            };
+
+            xhr.open("POST", API_URL + 'restaurants', true);
+            xhr.setRequestHeader("authorization", "Bearer " + btoa(token));
+            xhr.send(formData);
+        }));
     }
+
 
     rmRestaurant(id:number):Observable<Restaurant[]>{
         const url = API_URL + 'restaurants/' + id;

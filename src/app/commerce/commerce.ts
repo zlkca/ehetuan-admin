@@ -3,35 +3,37 @@ import { User, Address } from '../account/account';
 const MAX_N_PICTURES = 5;
 
 export class Restaurant{
-  public id:string;
-  public name:string;
-  public description:string;
+  id:string;
+  name:string;
+  description:string;
   categories:Category[];
   address:Address;
-  public created:string;
-  public updated:string;
-    constructor(o?:any){
-        if(o){
-           this.id = o.id;
-            this.name = o.name;
-            this.description = o.description;
-            this.created = o.created;
-            this.updated = o.updated;
-
-            if(o.address){
-              this.address = o.address;
+  image:any = { 'data':'', 'file':'' };
+  created:string;
+  updated:string;
+  
+  constructor(o?:any){
+      if(o){
+         this.id = o.id;
+          this.name = o.name;
+          this.description = o.description;
+          this.created = o.created;
+          this.updated = o.updated;
+          this.image = o.image;
+          if(o.address){
+            this.address = o.address; // province_id, city_id
+          }
+          
+          if(o.categories && o.categories.length > 0){
+            let cs = [];
+            for(let c of o.categories){
+              cs.push(new Category(c));
             }
-            
-            if(o.categories && o.categories.length > 0){
-              let cs = [];
-              for(let c of o.categories){
-                cs.push(new Category(c));
-              }
-              this.categories = cs;
-            }else{
-              this.categories = [];
-            }
-      }
+            this.categories = cs;
+          }else{
+            this.categories = [];
+          }
+    }
   }
 }
 

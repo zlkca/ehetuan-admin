@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 import { CommerceService } from '../commerce.service';
-import { Restaurant, Category } from '../commerce';
+import { Restaurant, Category, Picture } from '../commerce';
 import { City, Province, Address } from '../../account/account';
+import { ImageUploaderComponent } from '../../shared/image-uploader/image-uploader.component';
 
 @Component({
   selector: 'app-restaurant-form',
@@ -16,13 +17,15 @@ export class RestaurantFormComponent implements OnInit {
 	categoryList:Category[] = [];
 	cityList:City[] = [new City({id:'5130', name:'Toronto', province:{id:'48'}})];
 	provinceList:Province[] = [new Province({id:'48', name:'Ontario'})];
-
+	pictures:any[] = [];
 	// addressForm:FormGroup = new FormGroup({
 	// 	street: new FormControl(),
 	// 	province_id:new FormControl(),
  //        city_id:new FormControl(),
  //        postal_code: new FormControl()
 	// })
+	@ViewChild(ImageUploaderComponent)
+    uploader:any;
 
 	form:FormGroup = new FormGroup({
 		name: new FormControl('', [Validators.required, Validators.minLength(3)]),
@@ -72,6 +75,12 @@ export class RestaurantFormComponent implements OnInit {
                 	self.id = r.id;
                     self.form.patchValue(r);
 
+                    if(r.image.data){
+                    	self.pictures = [{index:0, name:"", image:r.image}];
+                    }else{
+                    	self.pictures = [];
+                    }
+                    
                     self.commerceServ.getCategoryList().subscribe(catList=>{
 		                self.categoryList = catList;
 		                for(let cat of catList){
@@ -131,15 +140,17 @@ export class RestaurantFormComponent implements OnInit {
 	save(){
 		let self = this;
 		let v = this.form.value;
+		let picture = self.uploader.data[0]
 		let addr = null;
 		// hardcode Toronto as default
 		if(self.restaurant && self.restaurant.address){
 			addr = self.restaurant.address;
 		}else{
-			addr = new Address({id:'', city:{id:5130}, province:{id:48},street:v.street, postal_code:v.postal_code});
+			addr = new Address({id:'', city:{id:5130}, province:{id:48}, street:v.street, postal_code:v.postal_code});
 		}
 		let m = new Restaurant(this.form.value);
 		m.address = addr;
+		m.image = picture.image;
 		m.id = self.id;
 		this.commerceServ.saveRestaurant(m).subscribe( (r:any) => {
 			self.router.navigate(['admin/restaurants']);

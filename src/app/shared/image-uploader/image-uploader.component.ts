@@ -16,7 +16,7 @@ declare var $;
 export class ImageUploaderComponent implements OnInit {
 	@Input() data : any[];
 	_data:any;
-  currPic:any = {index:1, data:'', file:''};
+  currPic:any = {index:0, data:'', file:''};
 
 	MEDIA_ROOT = environment.MEDIA_ROOT;
 
