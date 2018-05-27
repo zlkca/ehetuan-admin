@@ -1,0 +1,239 @@
+{
+    "ACTIVE_ACCOUNT_MSG":"Check your email to activate the account",
+    "ACTIVE_ACCOUNT_SUCESS_MSG":"You have activated your account successfully, please click ",
+    "ACTIVE_ACCOUNT_ERROR_MSG":"Your activated link has been expired, please click ",
+    "ACTIVE_EMAIL_SENT":"Activated email has been sent!",
+    "ADD":"Add",
+    "ADMIN":"Admin",
+    "ADMIN_IMAGE_DEFAULT_TITLE":"Default Image Titles",
+    "ADMIN_LOGIN":"Admin Login",
+    "ADMIN_WECHAT":"Admin Wechat",
+    "ALBUM":"Album",
+    "ALL":"All",
+    "AUTHOR":"Author",
+    "HOME":"Home",
+    "SERVICE":"Service",
+    "PORTFOLIO":"Portfolio",
+    "CANCEL":"Cancel",
+    "CATEGORY":"Category",
+    "CHANGE":"Change",
+    "CONFIRM_PASSWORD":"Confirm Password",
+    "CONTACT_US":"Contact Us",
+    "CREATE_NEW_ACCOUNT":"Create New Account",
+    "CHECKOUT":"Check out",
+    "CONTINUE_SHOPPING":"Continue Shopping",
+    "COLLECTOR":"Collector",
+    "CURRENT":"Current",
+    "CONFIRM":"Please Confirm",
+    "CONFIRM_SELL_MESSAGE":"Do you want to sell this item now?",
+    "CREATED":"Created",
+    
+    "DELETE":"Delete",
+    "USERNAME_OR_EMAIL":"Username or Email",
+    "USERNAME":"Username",
+
+    "EMAIL":"Email",
+    "PHONE_NUM":"Phone Number",
+    "SIGNUP_AS":"Sign up as",
+    "BUSINESS":"Business",
+    "MARKET":"Market",
+    "MEMBER":"Member",
+    "CREATE":"Create",
+    "SIGNUP":"Sign Up",
+    "LOGOUT":"Logout",
+    
+
+    "INVALID_ACCOUNT_OR_PASSOWRD":"Invalid Account or Password",
+
+    "USERNAME_OR_EMAIL_EXIST":"Username or Email Exist",
+    "INVALID_INPUT":"Invalid Input",
+    "UPLOAD_PHOTO":"Upload Photo",
+    "XIANG_WANG":"Xiang",
+    "TITLE":"Title",
+    "DESCRIPTION":"Description",
+    "YEAR":"Year",
+    "SOURCE":"Source",
+    "ORIGINAL":"Original",
+    
+    "STYLE":"Style",
+    "CONTEMPORARY":"Contemporary",
+    "MODERN":"Modern",
+    "POST-WAR":"Post-War",
+    "19CENTURY":"19's Centry",
+    "CLASSICAL":"Classical",
+    "DIMENSION":"Dimension",
+    "NUM_OF_COPIES":"Number of Copies",
+    "QUANTITY":"Quantity",
+    
+    "CURRENCY":"Currency",
+    "ADD_TO_CART":"Add to Cart",
+    "SUBMIT":"Submit",
+    
+    "OK":"OK",
+
+    "UPLOAD":"Upload",
+    "SELL":"Sell",
+    "BUY":"Buy",
+    
+    "PRICE_TBD":"Unknow Price",
+    "ABOUT":"About",
+
+    "ACCOUNT":"Account",
+    
+    "PASSWORD":"Password",
+    "PICTURE":"Picture",
+    "PICTURE_TITLE":"Picture Title",
+    "PHOTOS":"Photos",
+    "PRICE":"Price",
+    "PRODUCT_MANAGE":"Product Management",
+    "PROFILE":"Profile",
+    "PREVIOUS":"Previous",
+
+    "DETAILS":"Details",
+    "BILLING_ADDRESS":"Billing Address",
+    "DELIVERY_ADDRESS":"Delivery Address",
+    "BILLING_ADDR_SAME_AS_DELIVERY_ADDR":"Billing address is the same as shipping address",
+    "CREDIT_OR_DEBIT":"Credit Card/Debit Card",
+    "ORDER_DETAILS":"Order Details",
+    "PAYMENT":"Payment",
+    "ORDER_SUMMARY":"Order Summary",
+    
+    "PLACE_ORDER":"Place Order",
+    "EMAIL_TEMP_PASSWORD":"Email Temporary Password",
+    "FORGOT_PASSWORD":"Forgot Password",
+    "DELETE":"Delete",
+    
+    
+    "TOTAL":"Total",
+
+
+
+    "ACTION":"Action",
+
+    "NEED_AN_ACCOUNT":"Need an account?",
+    "NEXT":"Next",
+    "NOTE_ADD_US":"Please add us to put you to following wechat.",
+    "NOTE_CREATE_YOUR_GROUP":"Can't find group you want? Create and tell us by scan our QR.",
+
+    
+    "MY_INVENTORY":"My Inventory",
+    
+
+    "ARTIST":"Artist",
+
+
+    "INSTITUTION":"Institution",
+    "FIRSTNAME":"First Name",
+
+    "LASTNAME":"Last Name",
+    "LOGIN":"Login",
+    "LOGO":"Logo",
+
+    "USER_DESCRIPTION":"Description",
+    "TELEPHONE_NUMBER":"Telephone Number",
+    "PROVINCE":"Province",
+    "CITY":"City",
+    "PROVINCE":"Province/State",
+    "ADDRESS_DETAIL":"Address",
+    "ADDRESS":"Address",
+    "ADDRESS_AREA":"Address Area",
+    "ZIP_CODE":"Post Code",
+    "AVAILABLE":"Available",
+    "PURCHASED":"Purchased",
+
+    "NOT_NOW":"Not Now",
+    "RESULTS":"Results",
+    "OWNER":"Owner",
+    "UNFOLLOW":"UnFollow",
+    "FOLLOW":"Followed",
+    "MUTUALFOLLOW":"Mutual Follow",
+    "EDIT_PROFILE":"Edit Profile",
+    "MY_FOLLOW":"My Follow",
+    "MY_FOLLOWER":"My Follower",
+    "FILTER":"Filter",
+    "CLEAR_FILTER":"Clear Filter",
+    "TOKEN":"Token",
+    "GET_TOKEN":"Get Token",
+    "CHECK_TOKEN":"Check Photo",
+    "CONTACT_WAYS":"Contact ways",
+    "QUESTION_COMMENTS":"Questions and Comments?",
+
+    "LOGIN_MESSAGE":"Please login first",
+    "PHOTO_LIST_PAGE":"Photo List Page",
+    "NO_FAVORITE_OWNERS_MSG_FIRST":"You don't have any favorite owner, select a photo from ",
+    "NO_FAVORITE_OWNERS_MSG_SECOND":",  then select a photo detail page, click the link of owner's page and click 'like' button to add him to your favorite owner list",
+    "NO_FAVORITED_BY_OWNERS_MSG":"Currently you don't have any owners that followed you",
+    
+    "INVALID_TOKEN":"The token is invalid",
+    "INTRODUCTION":"Introduction",
+
+    "CORRECT_TOKEN":"The token is correct",
+    "MY-FOLLOW":"My Follow",
+    "MY-FAVORITE-PRODUCTS":"My Favorite Products",
+    "CHANGE-PASSWORD":"Change Password",
+    "NEW-PASSWORD":"New Password",
+    "CONFIRM-NEW-PASSWORD":"Confirm Password",
+    "INVALID_PASSOWRD":"Invalid Password",
+    "NEW_PASSWORD_DIFF":"New Password confirmation is wrong",
+
+
+    "HERE":"here",
+    "TO_LOGIN":" to login",
+    "PRICE_UNDECIDED":"Price Undecided",
+
+    "QR_CODE":"QR Code",
+    "QUN_FINDER":"Toronto Weixin",
+
+    "SAVE":"Save",
+    "SEND":"Send",
+    "SEARCH":"Search",
+    "SEARCH_BY_ARTIST":"Search by Artist",
+    "SEARCH_BY_KEYWORD":"Search",
+    "SEND_SUCCESSFULLY":"Send Successfully!",
+    "SEND_FAIL":"Send Fail!",
+    "SHOPPINGCART_EMPTY":"Your Shopping Cart is Empty",
+    "SLIDE1_TITLE":"Find a better investment advisor",
+    "SLIDE1_SUBTITLE":"Did you run faster than Ontario inflation rate 1.9% last year?",
+    "SHOPPINGCART":"Shopping Cart",
+    "SUPPORT":"Support",
+    "SOLD":"Sold",
+    "SUBTOTAL":"Subtotal",
+    "SUPPORT_MESSAGE":"Support Message is required",
+
+
+    
+
+    "EMAIL-MSG_FIRST":"Please go to your email box ",
+    "EMAIL-MSG_SECOND":", click the link to complete your signup",
+    "EMAIL-TIPS":"Tip: The activated email might be in the 'Junk' box, please check out.",
+    "NEW_PRODUCT":"New Product",
+    "MALE":"Male",
+    "FEMALE":"Female",
+    "NAME_ON_CREDIT_CARD":"*Name On Credit Card",
+    "CREDIT_CARD_NUMBER":"*Credit Card Number",
+    "CSC":"*CSC",
+
+    "UPDATED":"Updated",
+    "USER_MANAGE":"User Management",
+
+    "WAHT_IS_THIS":"(What is this?)",
+    "WECHAT_GROUP":"Wechat Group",
+    "WELCOME-SIGNUP":"Welcome to sign up",
+
+    "EXPIRY_MONTH":"*Expiry Month",
+    "EXPIRY_YEAR":"*Expiry Year",
+    "PRODUCT":"Product",
+    
+    "TAXES":"Taxes",
+    "GRAND_TOATL":"Grand Total",
+    
+    "NAME":"Name",
+    "MESSAGE":"Message",
+    "MESSAGE_SUBTITLE":"We will reply you ASAP",
+    "INVALID_FORM":"Please fill in all the blanks",
+
+
+
+    "EXPND":"Expand",
+    "COLLAPSE":"Collapse"
+}

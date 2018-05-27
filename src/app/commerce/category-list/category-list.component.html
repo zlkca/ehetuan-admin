@@ -1,0 +1,16 @@
+<div class="page category-list">
+    <div *ngIf="categoryList.length==0">
+		<button (click)="toPage('admin/category')">Add Category</button>
+	</div>
+	<div *ngIf="categoryList.length>0">
+		<div class="row" *ngFor="let c of categoryList">
+			<div class="col">{{c.name}}</div>
+			<div class="col">{{c.description}}</div>
+			<div class="col">
+				<div class="btn" (click)="add()">Add</div>
+	            <div class="btn" (click)="change(c)">Change</div>
+	            <div class="btn" (click)="delete(c)">Delete</div>
+	        </div>
+		</div>
+	</div>
+</div>

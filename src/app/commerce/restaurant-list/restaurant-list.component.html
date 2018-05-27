@@ -1,0 +1,17 @@
+<div class="page">
+	<div *ngIf="restaurantList.length==0">
+		<button (click)="toPage('admin/restaurant')">Add Restaurant</button>
+	</div>
+	<div *ngIf="restaurantList.length>0">
+		<div class="row" *ngFor="let m of restaurantList">
+			<div class="col">{{m.name}}</div>
+			<div class="col">{{m.description}}</div>
+			<div class="col">
+				<div class="btn" (click)="add()">Add</div>
+	            <div class="btn" (click)="change(m)">Change</div>
+	            <div class="btn" (click)="delete(m)">Delete</div>
+	        </div>
+		</div>
+	</div>
+</div>
+

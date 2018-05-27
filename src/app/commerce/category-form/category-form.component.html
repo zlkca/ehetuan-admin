@@ -1,0 +1,19 @@
+<div class="container">
+    <form [formGroup]="form">
+        <div class="row">
+            <div class="label-sm">Name:</div>
+            <input name="name" formControlName="name"/>
+            <div *ngIf="name.touched && name.invalid" class="alert alert-danger">
+                <div *ngIf="name.errors.required">Category Name is required</div>
+                <div *ngIf="name.errors.minlength">Category Name should be minimum 3 characters.</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="label-sm">Description</div>
+            <textarea name="description" formControlName="description"></textarea>
+            <div *ngIf="description.touched && description.invalid" class="alert alert-danger">Description should be maximum 500 chars.</div>
+        </div>
+
+        <button (click)="save()">Save</button>
+    </form>
+</div>

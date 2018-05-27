@@ -1,0 +1,16 @@
+<div class="page color-list">
+    <div *ngIf="colorList.length==0">
+		<button (click)="toPage('admin/color')">Add Color</button>
+	</div>
+	<div *ngIf="colorList.length>0">
+		<div class="row" *ngFor="let c of colorList">
+			<div class="col">{{c.name}}</div>
+			<div class="col">{{c.description}}</div>
+			<div class="col">
+				<div class="btn" (click)="add()">Add</div>
+	            <div class="btn" (click)="change(c)">Change</div>
+	            <div class="btn" (click)="delete(c)">Delete</div>
+	        </div>
+		</div>
+	</div>
+</div>
