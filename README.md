@@ -1,10 +1,17 @@
-# angular-admin
+# ehetuan-admin
 
-This is a seed project of angular5 responsive website ( front end only ). The project can be an admin website for your project, to replace for example, django admin.  
+This is a food delivery admin website of angular5 responsive website ( front end only ). The project can be an admin website for your project, to replace for example, django admin.  
 
 Hope this project will help you as well.
 
+## Install
+
+cd to root folder.
+run `npm install`
+
 ## Run server
+
+run `http://localhost:6004/admin` to start server
 
 You need to provide a standard angular2 environments folder and files before build and run the server, The content should have the following structure.
 
