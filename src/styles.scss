@@ -18,7 +18,7 @@ $primary-focus-color:#11759a;
 $title-color:#7c7c7c;
 $title-s-color:#414851;
 $item-height:40px;
-$navbar-height:80px;
+$navbar-height:40px;
 $navbar-m-height:80px;
 
 .selected{
@@ -52,6 +52,7 @@ $navbar-m-height:80px;
       font-weight: 300;
       line-height: 30px;
       color: #414851;//#8dbf41;
+      margin-bottom:20px;
   }
 
   .title-md{
@@ -251,6 +252,10 @@ body{
         width: 80px;
         min-width: 80px;
         margin-left: 10px;
+      }
+      img{
+        width:64px;
+        height:64px;
       }
     }
   }

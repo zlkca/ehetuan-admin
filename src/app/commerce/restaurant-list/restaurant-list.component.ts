@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Restaurant } from '../commerce';
 import { CommerceService } from '../commerce.service';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-restaurant-list',
@@ -11,6 +12,7 @@ import { CommerceService } from '../commerce.service';
 export class RestaurantListComponent implements OnInit {
 
 	restaurantList:Restaurant[] = [];
+    MEDIA_URL = environment.MEDIA_ROOT;
 
     constructor(private router:Router, private commerceServ:CommerceService){}
 

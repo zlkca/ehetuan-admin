@@ -4,6 +4,7 @@
 	</div>
 	<div class="list-body" *ngIf="restaurantList.length>0">
 		<div class="row" *ngFor="let m of restaurantList">
+			<img [src]="MEDIA_URL+m.image.data" />
 			<div class="col">{{m.name}}</div>
 			<div class="col">{{m.description}}</div>
 			<div class="col">

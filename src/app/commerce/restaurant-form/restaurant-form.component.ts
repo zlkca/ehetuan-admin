@@ -18,6 +18,7 @@ export class RestaurantFormComponent implements OnInit {
 	cityList:City[] = [new City({id:'5130', name:'Toronto', province:{id:'48'}})];
 	provinceList:Province[] = [new Province({id:'48', name:'Ontario'})];
 	pictures:any[] = [];
+
 	// addressForm:FormGroup = new FormGroup({
 	// 	street: new FormControl(),
 	// 	province_id:new FormControl(),
@@ -75,7 +76,7 @@ export class RestaurantFormComponent implements OnInit {
                 	self.id = r.id;
                     self.form.patchValue(r);
 
-                    if(r.image.data){
+                    if(r.image && r.image.data){
                     	self.pictures = [{index:0, name:"", image:r.image}];
                     }else{
                     	self.pictures = [];
