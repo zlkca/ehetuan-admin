@@ -2,7 +2,7 @@
     <div *ngIf="categoryList.length==0">
 		<button (click)="toPage('admin/category')">Add Category</button>
 	</div>
-	<div *ngIf="categoryList.length>0">
+	<div *ngIf="categoryList.length>0" class="list-body">
 		<div class="row" *ngFor="let c of categoryList">
 			<div class="col">{{c.name}}</div>
 			<div class="col">{{c.description}}</div>

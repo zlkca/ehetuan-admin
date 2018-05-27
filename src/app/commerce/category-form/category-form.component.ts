@@ -15,7 +15,7 @@ export class CategoryFormComponent implements OnInit {
     id:string = '';
 
     form:FormGroup = new FormGroup({
-        name: new FormControl('', [Validators.required, Validators.minLength(3)]),
+        name: new FormControl('', [Validators.required, Validators.minLength(1)]),
         description: new FormControl('',[Validators.maxLength(750)])
     });
 

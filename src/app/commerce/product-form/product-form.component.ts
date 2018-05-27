@@ -71,9 +71,9 @@ export class ProductFormComponent implements OnInit {
             self.restaurantList = r;
         })
 
-        self.commerceServ.getColorList().subscribe(r=>{
-            self.colorList = r;
-        })
+        // self.commerceServ.getColorList().subscribe(r=>{
+        //     self.colorList = r;
+        // })
 
         self.route.params.subscribe((params:any)=>{
             this.commerceServ.getProduct(params.id).subscribe(
@@ -81,7 +81,7 @@ export class ProductFormComponent implements OnInit {
                     self.id = p.id;
                     self.pictures = p.pictures;
                     self.form.patchValue(p);
-                    self.form.patchValue({restaurant_id:p.restaurant.id, color_id:p.color.id});
+                    self.form.patchValue({restaurant_id:p.restaurant.id});
                     self.commerceServ.getCategoryList().subscribe(catList=>{
                         self.categoryList = catList;
                         for(let cat of catList){

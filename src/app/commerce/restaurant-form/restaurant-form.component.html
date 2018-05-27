@@ -14,6 +14,46 @@
             <div *ngIf="description.touched && description.invalid" class="alert alert-danger">Max Manufacory Description is 500 chars.</div>
         </div>
 
+<!--         <div class="row">
+            <div class="label-sm">Category</div>
+            <div formArrayName="categories">
+                <div *ngFor="let cat of categoryList; let i=index">
+                    <input type="checkbox" formControlName="{{i}}" (change)="onToggleCategory(cat)">
+                    {{cat.name}}<br>
+                </div>
+            </div>
+        </div> -->
+
+        <div class="row">
+            <div class="label-sm">Street:</div>
+            <input name="street" formControlName="street"/>
+            <div *ngIf="street.touched && street.invalid" class="alert alert-danger">
+                <div *ngIf="street.errors.required">Street is required</div>
+                <div *ngIf="street.errors.minlength">Street should be minimum 3 characters.</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="label-sm">Postal Code:</div>
+            <input name="postal_code" formControlName="postal_code"/>
+            <div *ngIf="postal_code.touched && postal_code.invalid" class="alert alert-danger">
+                <div *ngIf="postal_code.errors.required">Postal Code is required</div>
+                <div *ngIf="postal_code.errors.minlength">Postal Code should be minimum 3 characters.</div>
+            </div>
+        </div>
+<!--         <div class="row">
+            <div class="label-sm">Province</div>
+            <select name="province" formControlName="province_id">
+                <option *ngFor="let province of provinceList" [value]="province.id">{{province.name}}</option>
+            </select>
+        </div>
+
+        <div class="row">
+            <div class="label-sm">City</div>
+            <select name="city" formControlName="city_id">
+                <option *ngFor="let city of cityList" [value]="city.id">{{city.name}}</option>
+            </select>
+        </div> -->
+
         <button (click)="save()">Save</button>
     </form>
 </div>

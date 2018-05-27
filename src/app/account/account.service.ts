@@ -4,13 +4,72 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { environment } from '../../environments/environment';
-import { User } from './account';
+import { User, City, Province, Address } from './account';
+
+const API_URL = environment.API_URL;
 
 @Injectable()
 export class AccountService {
     private API_URL = environment.API_URL;
 
     constructor(private http:HttpClient){ }
+
+
+    getCityList(query?:string):Observable<City[]>{
+        const url = API_URL + 'cities' + (query ? query:'');
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+        return this.http.get(url, {'headers': headers}).map((res:any) => {
+            let a:City[] = [];
+            let d = res.data;
+            if( d && d.length > 0){
+                for(var i=0; i<d.length; i++){
+                    a.push(new City(d[i]));
+                }
+            }
+            return a;
+        })
+        .catch((err) => {
+            return Observable.throw(err.message || err);
+        });
+    }
+
+
+    getProvinceList(query?:string):Observable<Province[]>{
+        const url = API_URL + 'provinces' + (query ? query:'');
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+        return this.http.get(url, {'headers': headers}).map((res:any) => {
+            let a:Province[] = [];
+            let d = res.data;
+            if( d && d.length > 0){
+                for(var i=0; i<d.length; i++){
+                    a.push(new Province(d[i]));
+                }
+            }
+            return a;
+        })
+        .catch((err) => {
+            return Observable.throw(err.message || err);
+        });
+    }
+
+
+    getAddressList(query?:string):Observable<Address[]>{
+        const url = API_URL + 'addresses' + (query ? query:'');
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+        return this.http.get(url, {'headers': headers}).map((res:any) => {
+            let a:Address[] = [];
+            let d = res.data;
+            if( d && d.length > 0){
+                for(var i=0; i<d.length; i++){
+                    a.push(new Address(d[i]));
+                }
+            }
+            return a;
+        })
+        .catch((err) => {
+            return Observable.throw(err.message || err);
+        });
+    }
 
     getUserList(query?:string):Observable<User[]>{
         const url = this.API_URL + 'user' + query ? query:'';

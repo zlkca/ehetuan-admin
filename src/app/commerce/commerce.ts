@@ -5,6 +5,7 @@ export class Restaurant{
   public id:string;
   public name:string;
   public description:string;
+  categories:Category[];
   public created:string;
   public updated:string;
     constructor(o?:any){
@@ -14,6 +15,16 @@ export class Restaurant{
             this.description = o.description;
             this.created = o.created;
             this.updated = o.updated;
+
+            if(o.categories && o.categories.length > 0){
+              let cs = [];
+              for(let c of o.categories){
+                cs.push(new Category(c));
+              }
+              this.categories = cs;
+            }else{
+              this.categories = [];
+            }
       }
   }
 }
