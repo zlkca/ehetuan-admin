@@ -4,7 +4,7 @@ const path = require('path')
 const app = express()
 
 const fs = require('fs')
-const cfg = JSON.parse(fs.readFileSync('../orchid.cfg.json','utf8'));
+const cfg = JSON.parse(fs.readFileSync('../ehetuan.cfg.json','utf8'));
 const APP_SERVER = cfg.APP_SERVER;
 
 // body-parser does not handle multipart bodies
