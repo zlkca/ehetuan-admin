@@ -386,13 +386,13 @@ export class CommerceService {
             formData.append('id', d.id? d.id:'');
             formData.append('name', d.name);
             formData.append('description', d.description);
-            formData.append('year', '2015');//d.n_subscription.toString());
+            // formData.append('year', '2015');//d.n_subscription.toString());
             formData.append('status', 'active');
-            formData.append('dimension', d.dimension);//d.rating.toString());
+            // formData.append('dimension', d.dimension);//d.rating.toString());
             formData.append('price', d.price? d.price.toString():'');
             formData.append('currency', 'CAD');
             formData.append('categories', Array.from(d.categories, x => x.id).join(','));
-            formData.append('color_id', d.color.id);
+            // formData.append('color_id', d.color.id);
             formData.append('restaurant_id', d.restaurant.id);
             
             formData.append('n_pictures', d.pictures.length?d.pictures.length.toString():'0');

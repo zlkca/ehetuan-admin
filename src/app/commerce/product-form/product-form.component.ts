@@ -15,7 +15,7 @@ export class ProductFormComponent implements OnInit {
     product:Product = new Product();
     categoryList:Category[] = [];
     restaurantList:Restaurant[] = [];
-    colorList:Color[] = [];
+    // colorList:Color[] = [];
     id:string = '';
     pictures:Picture[] = [];
 
@@ -25,11 +25,11 @@ export class ProductFormComponent implements OnInit {
     form:FormGroup = new FormGroup({
         name: new FormControl('', [Validators.required, Validators.minLength(3)]),
         description: new FormControl('',[Validators.maxLength(980)]),
-        dimension: new FormControl(),
+        // dimension: new FormControl(),
         price: new FormControl(),
         categories: new FormArray([]),
         restaurant_id:new FormControl(),
-        color_id:new FormControl()
+        // color_id:new FormControl()
     });
 
     get name(){
@@ -40,9 +40,9 @@ export class ProductFormComponent implements OnInit {
         return this.form.get('description');
     }
 
-    get dimension(){
-        return this.form.get('dimension');
-    }
+    // get dimension(){
+    //     return this.form.get('dimension');
+    // }
 
     get price(){
         return this.form.get('price');
@@ -56,9 +56,9 @@ export class ProductFormComponent implements OnInit {
         return this.form.get('restaurant_id');
     }
 
-    get color_id(){
-        return this.form.get('color_id');
-    }
+    // get color_id(){
+    //     return this.form.get('color_id');
+    // }
 
     constructor(private commerceServ:CommerceService, private route: ActivatedRoute, private router:Router){}
 
@@ -143,7 +143,7 @@ export class ProductFormComponent implements OnInit {
             id: self.id, 
             categories: self.getCheckedCategories(),
             restaurant: {id:self.restaurant_id.value},
-            color:{id:self.color_id.value},
+            // color:{id:self.color_id.value},
             pictures: self.uploader.data
         };
 
