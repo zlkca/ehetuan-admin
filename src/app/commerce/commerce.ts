@@ -1,4 +1,4 @@
-import { User，Address } from '../account/account';
+import { User, Address } from '../account/account';
 
 const MAX_N_PICTURES = 5;
 

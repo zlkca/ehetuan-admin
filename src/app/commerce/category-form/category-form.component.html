@@ -5,7 +5,7 @@
             <input name="name" formControlName="name"/>
             <div *ngIf="name.touched && name.invalid" class="alert alert-danger">
                 <div *ngIf="name.errors.required">Category Name is required</div>
-                <div *ngIf="name.errors.minlength">Category Name should be minimum 3 characters.</div>
+                <div *ngIf="name.errors.minlength">Category Name should be minimum 1 characters.</div>
             </div>
         </div>
         <div class="row">
