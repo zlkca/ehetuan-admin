@@ -33,8 +33,7 @@ export class RestaurantFormComponent implements OnInit {
 		description: new FormControl('',[Validators.maxLength(750)]),
 		categories: new FormArray([]),
 		// address: this.addressForm
-		street: new FormControl(),
-		postal_code: new FormControl()
+		street: new FormControl()
 	});
 
 	get name(){
@@ -51,10 +50,6 @@ export class RestaurantFormComponent implements OnInit {
 
 	get street(){
 		return this.form.get('street');
-	}
-
-	get postal_code(){
-		return this.form.get('postal_code');
 	}
 
 	get province_id(){
@@ -75,7 +70,8 @@ export class RestaurantFormComponent implements OnInit {
                 	self.restaurant = r;
                 	self.id = r.id;
                     self.form.patchValue(r);
-
+                    self.street.patchValue(r.address.street);
+                    
                     if(r.image && r.image.data){
                     	self.pictures = [{index:0, name:"", image:r.image}];
                     }else{
@@ -147,14 +143,23 @@ export class RestaurantFormComponent implements OnInit {
 		if(self.restaurant && self.restaurant.address){
 			addr = self.restaurant.address;
 		}else{
-			addr = new Address({id:'', city:{id:5130}, province:{id:48}, street:v.street, postal_code:v.postal_code});
+			addr = new Address({id:'', city:{id:5130}, province:{id:48}, street:v.street});
 		}
 		let m = new Restaurant(this.form.value);
-		m.address = addr;
+		
 		m.image = picture.image;
 		m.id = self.id;
-		this.commerceServ.saveRestaurant(m).subscribe( (r:any) => {
-			self.router.navigate(['admin/restaurants']);
-		});
+
+		let s = addr.street + ', ' + addr.city.name + ', ' + addr.province.name;
+		this.commerceServ.getLocation(s).subscribe(ret=>{
+			addr.lat = ret.lat;
+			addr.lng = ret.lng;
+			addr.postal_code = ret.postal_code;
+			m.address = addr;
+			self.commerceServ.saveRestaurant(m).subscribe( (r:any) => {
+				self.router.navigate(['admin/restaurants']);
+			});
+		})
+
 	}
 }

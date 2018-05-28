@@ -33,14 +33,7 @@
                 <div *ngIf="street.errors.minlength">Street should be minimum 3 characters.</div>
             </div>
         </div>
-        <div class="row">
-            <div class="label-sm">Postal Code:</div>
-            <input name="postal_code" formControlName="postal_code"/>
-            <div *ngIf="postal_code.touched && postal_code.invalid" class="alert alert-danger">
-                <div *ngIf="postal_code.errors.required">Postal Code is required</div>
-                <div *ngIf="postal_code.errors.minlength">Postal Code should be minimum 3 characters.</div>
-            </div>
-        </div>
+
 <!--         <div class="row">
             <div class="label-sm">Province</div>
             <select name="province" formControlName="province_id">
