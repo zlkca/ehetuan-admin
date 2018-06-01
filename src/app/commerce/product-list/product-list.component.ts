@@ -126,6 +126,7 @@ import { Router } from '@angular/router';
 import { Product } from '../commerce';
 import { SharedService } from '../../shared/shared.service';
 import { CommerceService } from '../commerce.service';
+import { environment } from '../../../environments/environment';
 
 @Component({
     selector: 'app-product-list',
@@ -134,6 +135,7 @@ import { CommerceService } from '../commerce.service';
 })
 export class ProductListComponent implements OnInit {
     productList:Product[] = [];
+    MEDIA_URL = environment.MEDIA_ROOT;
 
     constructor(private sharedServ:SharedService, private commerceServ:CommerceService, private router:Router){
 

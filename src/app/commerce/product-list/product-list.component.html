@@ -34,6 +34,7 @@
     </div>
     <div *ngIf="productList.length>0" class="list-body">
         <div class="row" *ngFor="let c of productList">
+            <img [src]="MEDIA_URL+c.pictures[0].image.data" />
             <div class="col">{{c.name}}</div>
             <div class="col">{{(c.description.length>80)? (c.description | slice:0:80)+'...':(c.description)}}</div>
             <div class="col">
