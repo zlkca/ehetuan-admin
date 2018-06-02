@@ -42,20 +42,12 @@ export class City{
 }
 
 export class Address{
-<<<<<<< HEAD
-  id = '';
-  street = '';
-  sub_locality = '';
-  postal_code = '';
-  city = new City();
-  province = new Province();
-=======
   id:string;
   street:string;
+  sub_locality:string;
   postal_code:string;
   province:Province;
   city:City;
->>>>>>> d716447f2e8b2573ca1318ad051116a83926cc16
   lat:string;
   lng:string;
 
