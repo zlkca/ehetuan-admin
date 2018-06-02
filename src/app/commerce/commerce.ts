@@ -11,8 +11,6 @@ export class Restaurant{
   image:any = { 'data':'', 'file':'' };
   created:string;
   updated:string;
-  currency:string;
-  delivery_fee:number;
   
   constructor(o?:any){
       if(o){
@@ -22,8 +20,6 @@ export class Restaurant{
           this.created = o.created;
           this.updated = o.updated;
           this.image = o.image;
-          this.currency = o.currency;
-          this.delivery_fee = o.delivery_fee;
           if(o.address){
             this.address = o.address; // province_id, city_id
           }
