@@ -18,8 +18,8 @@ export class User{
 }
 
 export class Province{
-  id:string;
-  name:string;
+  id = '';
+  name = '';
   constructor(o?:any){
     if(o){
       this.id = o.id;
@@ -29,9 +29,9 @@ export class Province{
 }
 
 export class City{
-  id:string;
-  name:string;
-  province:Province;
+  id ='';
+  name = '';
+  province = new Province();
   constructor(o?:any){
     if(o){
       this.id = o.id;
@@ -42,11 +42,11 @@ export class City{
 }
 
 export class Address{
-  id:string;
-  street:string;
-  postal_code:string;
-  province:Province;
-  city:City;
+  id = '';
+  street = '';
+  postal_code = '';
+  city = new City();
+  province = new Province();
   lat:string;
   lng:string;
 
@@ -55,8 +55,8 @@ export class Address{
       this.id = o.id;
       this.street = o.street;
       this.postal_code = o.postal_code;
-      this.province = o.province;
       this.city = o.city;
+      this.province = o.province;
       this.lat = o.lat;
       this.lng = o.lng;
     }
