@@ -6,7 +6,6 @@ import { SharedModule } from '../shared/shared.module';
 
 import { SharedService } from '../shared/shared.service';
 import { CommerceService } from './commerce.service';
-import { AccountService } from '../account/account.service'
 
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -35,7 +34,6 @@ import { ColorFormComponent } from './color-form/color-form.component';
    providers: [
      SharedService,
      CommerceService,
-     AccountService,
      {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
