@@ -44,6 +44,7 @@ export class City{
 export class Address{
   id = '';
   street = '';
+  sub_locality = '';
   postal_code = '';
   city = new City();
   province = new Province();
@@ -54,6 +55,7 @@ export class Address{
     if(o){
       this.id = o.id;
       this.street = o.street;
+      this.sub_locality = o.sub_locality;
       this.postal_code = o.postal_code;
       this.city = o.city;
       this.province = o.province;

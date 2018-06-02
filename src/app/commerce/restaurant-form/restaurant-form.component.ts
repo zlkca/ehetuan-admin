@@ -60,7 +60,10 @@ export class RestaurantFormComponent implements OnInit {
 		this.restaurantForm = this.fb.group({
 			name: ['', [Validators.required, Validators.minLength(3)]],
 			description: ['', Validators.maxLength(750)],
-			address: this.fb.group(new Address()),
+			address: this.fb.group({
+				street:['',[Validators.required]],
+				postal_code:['', [Validators.required]]
+			}),
 			categories: this.fb.array([]),
 			delivery_fee: ''
 		});
@@ -138,18 +141,22 @@ export class RestaurantFormComponent implements OnInit {
 		// hardcode Toronto as default
 		if(self.restaurant && self.restaurant.address){
 			addr = self.restaurant.address;
+			addr.street = v.address.street;
 		}else{
-			addr = new Address({id:'', city:{id:5130}, province:{id:48}, street:v.street});
+			addr = new Address({id:'', city:{id:5130}, province:{id:48}, street:v.address.street});
 		}
 		let m = new Restaurant(this.restaurantForm.value);
 		
 		m.image = picture.image;
 		m.id = self.id;
 
-		let s = addr.street + ', ' + addr.city.name + ', ' + addr.province.name;
+		// to fix
+		//let s = addr.street + ', ' + addr.city.name + ', ' + addr.province.name;
+		let s = addr.street + ', Toronto, ' + v.address.postal_code;
 		this.commerceServ.getLocation(s).subscribe(ret=>{
 			addr.lat = ret.lat;
 			addr.lng = ret.lng;
+			addr.sub_locality = ret.sub_locality;
 			addr.postal_code = ret.postal_code;
 			m.address = addr;
 			self.commerceServ.saveRestaurant(m).subscribe( (r:any) => {

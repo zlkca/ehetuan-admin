@@ -51,8 +51,18 @@ export class CommerceService {
         return this.http.get(url).map((res:any)=>{
             if(res.results && res.results.length>0){
                 let r = res.results[0];
-                let postal_code = r.address_components[7].long_name;
-                return {...r.geometry.location, ...{'postal_code':postal_code}};//{lat: 43.7825004, lng: -79.3930389}
+                let postal_code = '', sub_locality = '';
+                for(let addr of r.address_components){
+                    if(addr.types.indexOf('postal_code')!=-1){
+                        postal_code = addr.long_name;
+                    }
+                    if(addr.types.indexOf('sublocality_level_1')!=-1 || addr.types.indexOf('sublocality')!=-1){
+                        sub_locality = addr.long_name;
+                    }
+                }
+                return {...r.geometry.location, ...{'formatted_addr':r.formatted_address, 
+                    'sub_locality':sub_locality,
+                    'postal_code':postal_code}};//{lat: 43.7825004, lng: -79.3930389}
             }else{
                 return null;
             }
@@ -99,6 +109,7 @@ export class CommerceService {
             formData.append('description', d.description);
             formData.append('address_id', d.address.id);
             formData.append('street', d.address.street);
+            formData.append('sub_locality', d.address.sub_locality);
             formData.append('postal_code', d.address.postal_code);
             formData.append('province_id', d.address.province.id);
             formData.append('city_id', d.address.city.id);
