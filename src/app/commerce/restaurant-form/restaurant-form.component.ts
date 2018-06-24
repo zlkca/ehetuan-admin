@@ -31,9 +31,10 @@ export class RestaurantFormComponent implements OnInit {
 	form:FormGroup = new FormGroup({
 		name: new FormControl('', [Validators.required, Validators.minLength(3)]),
 		description: new FormControl('',[Validators.maxLength(750)]),
-		categories: new FormArray([]),
+		//categories: new FormArray([]),
 		// address: this.addressForm
-		street: new FormControl()
+		street: new FormControl(),
+		postal_code: new FormControl()
 	});
 
 	get name(){

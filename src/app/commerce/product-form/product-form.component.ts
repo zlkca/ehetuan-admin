@@ -27,7 +27,7 @@ export class ProductFormComponent implements OnInit {
         description: new FormControl('',[Validators.maxLength(980)]),
         // dimension: new FormControl(),
         price: new FormControl(),
-        categories: new FormArray([]),
+        // categories: new FormArray([]),
         restaurant_id:new FormControl(),
         // color_id:new FormControl()
     });
@@ -82,18 +82,18 @@ export class ProductFormComponent implements OnInit {
                     self.pictures = p.pictures;
                     self.form.patchValue(p);
                     self.form.patchValue({restaurant_id:p.restaurant.id});
-                    self.commerceServ.getCategoryList().subscribe(catList=>{
-                        self.categoryList = catList;
-                        for(let cat of catList){
-                            let c = p.categories.find(x=> x.id==cat.id );
-                            if(c){
-                                self.categories.push(new FormControl(true));
-                            }else{
-                                self.categories.push(new FormControl(false));
-                            } 
-                            //self.categories.push(new FormControl(s.id));      
-                        }
-                    })
+                    // self.commerceServ.getCategoryList().subscribe(catList=>{
+                    //     self.categoryList = catList;
+                    //     for(let cat of catList){
+                    //         let c = p.categories.find(x=> x.id==cat.id );
+                    //         if(c){
+                    //             self.categories.push(new FormControl(true));
+                    //         }else{
+                    //             self.categories.push(new FormControl(false));
+                    //         } 
+                    //         //self.categories.push(new FormControl(s.id));      
+                    //     }
+                    // })
 
 
                 },
@@ -104,13 +104,13 @@ export class ProductFormComponent implements OnInit {
     }
 
     onToggleCategory(c:FormControl){
-        let v = c.value;
-        if(c.value.checked){
-            v.checked = false;
-        }else{
-            v.checked = true;
-        }
-        c.patchValue(v);
+        // let v = c.value;
+        // if(c.value.checked){
+        //     v.checked = false;
+        // }else{
+        //     v.checked = true;
+        // }
+        // c.patchValue(v);
     }
 
     onSelectRestaurant(id:string){
@@ -141,7 +141,7 @@ export class ProductFormComponent implements OnInit {
         let self = this;
         let newV = {...this.form.value, 
             id: self.id, 
-            categories: self.getCheckedCategories(),
+            categories: [{id:1}],//self.getCheckedCategories(),
             restaurant: {id:self.restaurant_id.value},
             // color:{id:self.color_id.value},
             pictures: self.uploader.data
