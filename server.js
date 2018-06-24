@@ -29,9 +29,9 @@ app.use(express.static(__dirname + '/dist'));
 //     res.sendFile(path.join(__dirname, '/dist/index.html'));
 // });
 //app.listen(SERVER_PORT, () => console.log('Server setup'))
-app.set('port', process.env.PORT || APP_SERVER.PORT)
+app.set('port', process.env.PORT || APP_SERVER.ADMIN_PORT)
 
 var server = http.createServer(app)
 server.listen(app.get('port'), function () {
-  console.log('Express server listening on port ' + APP_SERVER.PORT)
+  console.log('Express server listening on port ' + APP_SERVER.ADMIN_PORT)
 })
